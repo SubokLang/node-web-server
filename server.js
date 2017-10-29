@@ -20,9 +20,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-    res.render('maintenance.hbs');
-}); // no next() so only maintenance.hbs executes
+// app.use((req, res, next) => {
+//     res.render('maintenance.hbs');
+// }); // no next() so only maintenance.hbs executes
 
 app.use(express.static(__dirname + '/public'));
 
@@ -54,8 +54,14 @@ app.get('/', (req,res) => {
 
 app.get('/about', (req,res) => {
   res.render('about.hbs', {
-    pageTitle: 'About Page',
+    pageTitle: 'About Page'
     // currentYear: new Date().getFullYear()
+  });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects'
   });
 });
 
